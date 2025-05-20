@@ -1,17 +1,10 @@
-const mongoose = require("mongoose")
+import mongoose from "mongoose";
 
-const Schema = mongoose.Schema
-const holaMundoSchema = new Schema({
-    Mesa:{
-        type:Number,
-        required:true,
-        unique:true
-    },
-    Platos:{
-        type:Number, //Separar los strings con coma
-        require:false,
-        default:""
-    }
-})
 
-module.exports = mongoose.module("holaMundo",holaMundoSchema)
+const ComandasSchema = new mongoose.Schema({
+  mesa: { type: Number, required: true },
+  comensales: { type: String, required: true },
+  BtnDisponibilidad: { type: Boolean, default: true },
+});
+
+export default mongoose.model("comanda", ComandasSchema);

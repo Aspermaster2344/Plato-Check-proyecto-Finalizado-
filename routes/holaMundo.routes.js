@@ -1,15 +1,13 @@
-const express = require("express")
-const router = express.Router()
-
-const holaController = require("../controllers/holaMundo.controllers")
-router.get("/",(req,res) => {
-    res.send("estamos en la ruta hola")
-})
-
-router.get("/",holaController.holaMundo)
-router.get("/:id",)
-router.post("/")
-router.patch("/")
+import { Router } from "express"
+import  comanda  from "../controllers/comanda.controllers.js"
 
 
-module.exports = router
+const router = Router();
+
+
+
+router.get("/",comanda.traerComandas)
+router.post("/",comanda.guardarComanda)
+
+
+export default router;
